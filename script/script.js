@@ -9,6 +9,7 @@ let firstCardSrc = [];
 let secondCardSrc = [];
 let firstThis = [];
 let secondThis = [];
+let showGitAmount;
 
 function titleGeneration(){
     const title = document.querySelector("h1");
@@ -21,6 +22,7 @@ function titleGeneration(){
 
 function getCardNumbers(){
     do{
+        // debugger;
         cardNumbers = prompt("Escolha um número par de 4 a 14 de cartas para jogar.");
 
         // console.log(cardNumbers);
@@ -55,7 +57,7 @@ function addCardsRandomly(){
         const tableContent = document.querySelector(".cardTable");
 
         tableContent.innerHTML = tableContent.innerHTML + `
-            <div onclick="turnOnCard(this)" class="card">
+            <div onclick="turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCard(this)" class="card">
                 <div class="front-face face">
                     <img src="/img/back.png" alt="Imagem do fundo da carta" width="100px">
                 </div> <!-- FRONT FACE -->
@@ -69,7 +71,7 @@ function addCardsRandomly(){
 
 // addCardsRandomly();
 
-function turnOnCard(showThis){
+function turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCard(showThis){
     desvirar++;
 
     //desvirando as cartas
@@ -98,17 +100,21 @@ function turnOnCard(showThis){
         secondThis[1] = turnedBackCard;
         // console.log(secondCardSrc);
         if(secondCardSrc === firstCardSrc){
-            console.log("Nada acontece");
+            // endGameMessage();
+            // console.log("Nada acontece");
             // console.log(firstThis[0]);
             // console.log(firstThis[1]);
             // console.log(secondThis[0]);
             // console.log(secondThis[1]);
+            endGameMessage();
         } else {
             // debugger;
-            setTimeout(delayOneSegHideCards, 500); 
-            console.log("Vira as cartas");
+            // endGameMessage();
+            setTimeout(delayOneSegHideCards, 500);
+            // console.log("Vira as cartas");
         }        
     }
+    console.log(rounds);
 }
 
 function delayOneSegHideCards(){
@@ -118,13 +124,39 @@ function delayOneSegHideCards(){
     secondThis[1].classList.remove("show-gif");
 }
 
+function endGameMessage(){
+    let count = 0;
+    let endGame = 0;
 
+    const howMuchShowGif = document.querySelectorAll(".show-gif");  
+    count = howMuchShowGif.length;
+    console.log("howMuchShowGif:" + count);
+    console.log("cardNumbers:" + cardNumbers);
+    if(count == cardNumbers){
+        endGame = 1;
+        alert("Você ganhou em "+rounds+" jogadas!");
+    }
+    console.log("endGame:" + endGame);
+
+    return endGame;   
+}
+
+
+
+// FUNCÕES AUXILIARES
+// delayOneSegHideCards()
+// comparador()
+
+// FUNCÕES ONCLICK
+// turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCard(showThis)
 
 
 // RODANDO O PROGRAMA
 titleGeneration();
 getCardNumbers();
 addCardsRandomly();
+
+
 
 
 
