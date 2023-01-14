@@ -2,6 +2,7 @@ const gameTitle = "PARROT CARD GAME";
 let cardNumbers = 0;
 const possibleCards = [1,1,2,2,3,3,4,4,5,5,6,6,7,7];
 const cards = [];
+let rounds = 0;
 
 function titleGeneration(){
     const title = document.querySelector("h1");
@@ -10,7 +11,7 @@ function titleGeneration(){
     // console.log(title);
 }
 
-titleGeneration();
+// titleGeneration();
 
 function getCardNumbers(){
     do{
@@ -27,7 +28,7 @@ function getCardNumbers(){
     } while ((cardNumbers < 4) || (cardNumbers > 14) || cardNumbers%2);
 }
 
-getCardNumbers();
+// getCardNumbers();
 
 
 function comparador() { 
@@ -48,7 +49,7 @@ function addCardsRandomly(){
         const tableContent = document.querySelector(".cardTable");
 
         tableContent.innerHTML = tableContent.innerHTML + `
-            <div class="card">
+            <div onclick="turnOnCard(this)" class="card">
                 <div class="front-face face">
                     <img src="/img/back.png" alt="Imagem do fundo da carta" width="100px">
                 </div> <!-- FRONT FACE -->
@@ -62,15 +63,30 @@ function addCardsRandomly(){
 
 // addCardsRandomly();
 
-function turnCard(showThis){
-    alert("Aoba");
-    console.log(showThis);
+function turnOnCard(showThis){
     const turnedFrontCard = showThis.querySelector(".front-face");
-    console.log(turnedFrontCard);
     const turnedBackCard = showThis.querySelector(".back-face");
-    turnedFrontCard.classList.add(".hide-bird");
-    turnedBackCard.classList.add(".show-gif");
+    // if(classList.contains("hide-bird") === 0 ){
+    //     rounds++;        
+    // }
+    // console.log(turnedFrontCard.classList.contains("hide-bird"));
+    if (!turnedFrontCard.classList.contains("hide-bird")){
+        rounds++;
+    }
+    turnedFrontCard.classList.add("hide-bird");
+    turnedBackCard.classList.add("show-gif");
+    console.log(rounds);
+    // console.log(turnedFrontCard.classList.contains("hide-bird"));
 }
+
+
+
+
+
+// RODANDO O PROGRAMA
+titleGeneration();
+getCardNumbers();
+addCardsRandomly();
 
 
 
