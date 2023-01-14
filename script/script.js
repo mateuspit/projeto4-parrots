@@ -60,7 +60,17 @@ function addCardsRandomly(){
     }    
 }
 
-addCardsRandomly();
+// addCardsRandomly();
+
+function turnCard(showThis){
+    alert("Aoba");
+    console.log(showThis);
+    const turnedFrontCard = showThis.querySelector(".front-face");
+    console.log(turnedFrontCard);
+    const turnedBackCard = showThis.querySelector(".back-face");
+    turnedFrontCard.classList.add(".hide-bird");
+    turnedBackCard.classList.add(".show-gif");
+}
 
 
 

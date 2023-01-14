@@ -40,21 +40,24 @@
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
-    transition: all .5s;
+    transition: all 2s;
     transform-style: preserve-3d;
   }
 
   .back-face {
     transform: rotateY(180deg);
-  }
+  } /*hide gif*/
 
-  /* .card:hover .back-face {
+  .show-gif {
     transform: rotateY(0deg);
-  }
+    background-color: red;
+  } /*show gif*/
 
-  .card:hover .front-face {
+  .hide-bird{
     transform: rotateY(-180deg);
-  } */
+    background-color: blue;
+  } /*turn and hide bird*/
+
 
   @media (max-width: 335px){
     h1{
