@@ -56,7 +56,6 @@
     transform: rotateY(-180deg);
   } /*turn and hide bird*/
 
-
   @media (max-width: 335px){
     h1{
         font-size: 36px;
