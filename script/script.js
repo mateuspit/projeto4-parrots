@@ -10,6 +10,9 @@ let secondCardSrc = [];
 let firstThis = [];
 let secondThis = [];
 let showGitAmount;
+let gameTime = 0;
+let globalEndGame = 0;
+let intervalId;
 
 function titleGeneration(){
     const title = document.querySelector("h1");
@@ -57,7 +60,7 @@ function addCardsRandomly(){
         const tableContent = document.querySelector(".cardTable");
 
         tableContent.innerHTML = tableContent.innerHTML + `
-            <div onclick="turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCard(this)" class="card">
+            <div onclick="turnOnCardAnalizeAndTurnOffCard(this)" class="card">
                 <div class="front-face face">
                     <img src="/img/back.png" alt="Imagem do fundo da carta" width="100px">
                 </div> <!-- FRONT FACE -->
@@ -71,7 +74,7 @@ function addCardsRandomly(){
 
 // addCardsRandomly();
 
-function turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCard(showThis){
+function turnOnCardAnalizeAndTurnOffCard(showThis){
     desvirar++;
 
     //desvirando as cartas
@@ -106,7 +109,7 @@ function turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCa
             // console.log(firstThis[1]);
             // console.log(secondThis[0]);
             // console.log(secondThis[1]);
-            endGameMessage();
+            globalEndGame = endGameMessage();
         } else {
             // debugger;
             // endGameMessage();
@@ -130,39 +133,71 @@ function endGameMessage(){
 
     const howMuchShowGif = document.querySelectorAll(".show-gif");  
     count = howMuchShowGif.length;
-    console.log("howMuchShowGif:" + count);
-    console.log("cardNumbers:" + cardNumbers);
+    // console.log("howMuchShowGif:" + count);
+    // console.log("cardNumbers:" + cardNumbers);
     if(count == cardNumbers){
         endGame = 1;
         setTimeout(delayWinMessageAndNewGameOption,500);
     }
-    console.log("endGame:" + endGame);
+    // console.log("endGame:" + endGame);
 
     return endGame;   
 }
 
 function delayWinMessageAndNewGameOption(){
-    alert("Você ganhou em "+rounds+" jogadas!");
+    clearInterval(intervalId);
+    alert("Você ganhou em "+rounds+" jogadas! A duração do jogo foi de "+gameTime+" segundos!");
+    //gameTime
+    //rounds
     let newGame = prompt("Gostaria de reiniciar a partida ('sim' ou 'não').");
     if(newGame == "sim"){
         location.reload();
     }
 }
 
+function gameTimer(){
+    gameTime++; 
+    // console.log(gameTime);  
+    const timerClock = document.querySelector(".timer");
+    timerClock.innerHTML = `
+    <h2>${gameTime}<h2>
+    `;
+
+}
+
+function startTimer(){
+    intervalId = setInterval(gameTimer, 1000);
+}
+
+
+
+
+
+
 
 
 // FUNCÕES AUXILIARES
 // delayOneSegHideCards()
 // comparador()
+// delayWinMessageAndNewGameOption()
+// gameTimer()
 
 // FUNCÕES ONCLICK
-// turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCard(showThis)
+// turnOnCardAnalizeAndTurnOffCard(showThis)
 
 
 // RODANDO O PROGRAMA
 titleGeneration();
 getCardNumbers();
+startTimer()
 addCardsRandomly();
+
+// function addClock(){
+
+// }
+
+
+
 
 
 
