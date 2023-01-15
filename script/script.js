@@ -81,7 +81,7 @@ function turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCa
     if (!turnedFrontCard.classList.contains("hide-bird")){
         rounds++;
     }
-
+    // debugger;
     turnedFrontCard.classList.add("hide-bird");
     turnedBackCard.classList.add("show-gif");
 
@@ -114,7 +114,7 @@ function turnOnCardAnalizeAndTurnOffCardAnalizeAndTurnOffCardAnalizeAndTurnOffCa
             // console.log("Vira as cartas");
         }        
     }
-    console.log(rounds);
+    // console.log(rounds);
 }
 
 function delayOneSegHideCards(){
@@ -134,11 +134,19 @@ function endGameMessage(){
     console.log("cardNumbers:" + cardNumbers);
     if(count == cardNumbers){
         endGame = 1;
-        alert("Você ganhou em "+rounds+" jogadas!");
+        setTimeout(delayWinMessageAndNewGameOption,500);
     }
     console.log("endGame:" + endGame);
 
     return endGame;   
+}
+
+function delayWinMessageAndNewGameOption(){
+    alert("Você ganhou em "+rounds+" jogadas!");
+    let newGame = prompt("Gostaria de reiniciar a partida ('sim' ou 'não').");
+    if(newGame == "sim"){
+        location.reload();
+    }
 }
 
 
@@ -155,6 +163,8 @@ function endGameMessage(){
 titleGeneration();
 getCardNumbers();
 addCardsRandomly();
+
+
 
 
 
