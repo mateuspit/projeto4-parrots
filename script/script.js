@@ -60,12 +60,12 @@ function addCardsRandomly(){
         const tableContent = document.querySelector(".cardTable");
 
         tableContent.innerHTML = tableContent.innerHTML + `
-            <div onclick="turnOnCardAnalizeAndTurnOffCard(this)" class="card">
+            <div data-test="card" onclick="turnOnCardAnalizeAndTurnOffCard(this)" class="card">
                 <div class="front-face face">
-                    <img src="/img/back.png" alt="Imagem do fundo da carta" width="100px">
+                    <img data-test="face-down-image" src="/img/back.png" alt="Imagem do fundo da carta" width="100px">
                 </div> <!-- FRONT FACE -->
                 <div class="back-face face">
-                    <img src="/img/${cards[i]}.gif" alt="Gif numero 1" width="100px"/>
+                    <img data-test="face-up-image" src="/img/${cards[i]}.gif" alt="Gif numero 1" width="100px"/>
                 </div> <!-- BACK FACE -->
             </div>
         ` ;
@@ -160,7 +160,7 @@ function gameTimer(){
     // console.log(gameTime);  
     const timerClock = document.querySelector(".timer");
     timerClock.innerHTML = `
-    <h2>${gameTime}<h2>
+    <h2 data-test="timer">${gameTime}<h2>
     `;
 
 }
