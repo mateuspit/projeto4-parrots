@@ -1,3 +1,9 @@
+body{
+  background-color: #eef9bf;
+  /* height: 100%; */
+
+}
+
 .card {
     width: 117px;
     height: 146px;
@@ -9,7 +15,7 @@
   .site{
     background-color: #eef9bf;
     /* width: 1110px; */
-    /* height: auto; */
+    height: 100%;
     position: relative;
   }
 
