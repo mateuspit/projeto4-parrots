@@ -149,10 +149,18 @@ function delayWinMessageAndNewGameOption(){
     alert("Você ganhou em "+rounds+" jogadas! A duração do jogo foi de "+gameTime+" segundos!");
     //gameTime
     //rounds
-    let newGame = prompt("Gostaria de reiniciar a partida ('sim' ou 'não').");
-    if(newGame == "sim"){
-        location.reload();
-    }
+    // let newGame = prompt("Gostaria de reiniciar a partida ('sim' ou 'não').");
+    // if(newGame == "sim"){
+    //     location.reload();
+    // }
+    let newGame = "";
+    do{
+        newGame = prompt("Gostaria de reiniciar a partida ('sim' ou 'não').");
+        if(newGame == "sim"){
+            location.reload();
+        }
+        // console.log(newGame);
+    } while(newGame !== "não");
 }
 
 function gameTimer(){
