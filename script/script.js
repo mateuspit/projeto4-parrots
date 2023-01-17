@@ -62,10 +62,10 @@ function addCardsRandomly(){
         tableContent.innerHTML = tableContent.innerHTML + `
             <div data-test="card" onclick="turnOnCardAnalizeAndTurnOffCard(this)" class="card">
                 <div class="front-face face">
-                    <img data-test="face-down-image" src="/img/back.png" alt="Imagem do fundo da carta" width="100px">
+                    <img data-test="face-down-image" src="./img/back.png" alt="Imagem do fundo da carta" width="100px">
                 </div> <!-- FRONT FACE -->
                 <div class="back-face face">
-                    <img data-test="face-up-image" src="/img/${cards[i]}.gif" alt="Gif numero 1" width="100px"/>
+                    <img data-test="face-up-image" src="./img/${cards[i]}.gif" alt="Gif numero 1" width="100px"/>
                 </div> <!-- BACK FACE -->
             </div>
         ` ;
