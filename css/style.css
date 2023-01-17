@@ -8,14 +8,16 @@
 
   .site{
     background-color: #eef9bf;
-    width: 1110px;
-    height: auto;
+    /* width: 1110px; */
+    /* height: auto; */
     position: relative;
   }
 
   .cardTable{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     margin-left: 88px;
     margin-right: 88px;
   }
@@ -40,9 +42,9 @@
     font-size: 56px;
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-bottom: 47px;
     padding-top: 40px;
-    padding-left: 285px;
-    padding-bottom: 47px;
   }
 
   .face {
